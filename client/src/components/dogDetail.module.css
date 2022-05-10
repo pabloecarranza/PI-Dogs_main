@@ -1,0 +1,105 @@
+.AddBreed {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #b8d3ee;
+    min-width: fit-content;
+    margin: 1% 30% 1% 30%;
+    padding: 1em;
+    max-width: 40em;
+  }
+  
+
+  input[type="number"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+  }
+  .addTitle {
+    font-size: 24px;
+    margin: 0.5em;
+    padding: 0;
+  }
+  
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  input[type="submit"] {
+    margin: 1px;
+    background-color: #494949;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  .MinMax {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .TemperContainer {
+    display: flex;
+    margin: 0.5em;
+    flex-wrap: wrap;
+    padding: 0.1em;
+  }
+  .IndividualTemper {
+    background-color: #494948;
+    padding: 0.3em;
+    margin: 0.1em;
+    border-radius: 0.4em;
+    font-family: sans-serif;
+    color: #e1f8f8;
+  }
+  
+  .DelTemper {
+    border-radius: 1em;
+    margin: 0.1px 2px;
+    color: #ffffff;
+    border: none;
+    background: #494949;
+    padding: 3px 6px 3px 6px;
+    text-decoration: none;
+  }
+  .DelTemper:hover {
+    color: #ff0606;
+    text-decoration: none;
+  }
+  
+  .error {
+    margin: 0;
+    color: #db3659;
+    font-size: 10px;
+    align-self: center;
+    text-align: justify;
+  }
+
+  .carDetail{
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      margin-left: 300px;
+  }
