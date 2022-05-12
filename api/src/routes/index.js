@@ -4,13 +4,8 @@ const axios = require("axios");
 require("dotenv").config();
 const { API_KEY } = process.env;
 const URL = `https://api.thedogapi.com/v1/breeds?${API_KEY}`;
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
 
 const router = Router();
-
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
 
 const getInfoAPI = async () => {
   const apiURL = await axios.get("https://api.thedogapi.com/v1/breeds");
@@ -30,7 +25,7 @@ const getInfoAPI = async () => {
 };
 
 const datainDB = async () => {
-  return await Dog.findAll({
+  let DogDB = await Dog.findAll({
     include: {
       model: Temperament,
       attributes: ["name"],
@@ -39,37 +34,36 @@ const datainDB = async () => {
       },
     },
   });
+
+  const tempDB = DogDB.map((dog) => {
+    return {
+      id: dog.id,
+      image: dog.img,
+      name: dog.name,
+      temperament: dog.temperaments.map((temper)=> temper.name).join(', '),
+      life_span: dog.life_span,
+      weight: dog.weight,
+      origin: dog.origin,
+      temperamentCC: dog.temperament,
+      created:true
+    };
+  });
+
+  return tempDB
 };
 
 const getAllDogs = async () => {
-    const apiInfo = await getInfoAPI();
-    const dataInfo = await datainDB();
-     /* const formatDataDB =  dataInfo.map((dog)=>{
-         
-         return {
-            id: dog.dataValues.id,
-            image: dog.dataValues.image.url,
-            name: dog.dataValues.name,
-            temperament: dog.dataValues.temperament,
-           
-        } 
-    }) */
-
- 
-
-
+  const apiInfo = await getInfoAPI();
+  const dataInfo = await datainDB();
   const infoTotal = apiInfo.concat(dataInfo);
   return infoTotal;
 };
 
-
 router.get("/dogs", async (req, res) => {
-  /* http://localhost:3001/dogs && http://localhost:3001/dogs/?name=Affenpinscher */
   const name = req.query.name;
   try {
     let dogsTotal = await getAllDogs();
     if (name) {
-      /* Si entra un query */
       let dogName = await dogsTotal.filter((dog) =>
         dog.name.toLowerCase().includes(name.toLowerCase())
       );
@@ -79,7 +73,6 @@ router.get("/dogs", async (req, res) => {
             .status(404)
             .send("Cann't find the dog with the name you are looking for");
     } else {
-      /* Si no hay query en la URL */
       res.status(200).json(dogsTotal);
     }
   } catch (error) {
@@ -94,7 +87,6 @@ router.get("/temperament", async (req, res) => {
       .map((dog) => (dog.temperament ? dog.temperament : "No info"))
       .map((dog) => dog?.split(", "));
     let eachTemperament = [...new Set(everyTemperament.flat())];
-    console.log(eachTemperament);
     eachTemperament.forEach((el) => {
       if (el) {
         Temperament.findOrCreate({

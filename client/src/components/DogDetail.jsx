@@ -32,16 +32,13 @@ function DogDetail(props) {
         detail.find((dog) => dog.created === true) ? (
           <div className={styles.dogDetail}>
             <h1>{detail[0].name}</h1>
-            <img src={detail[0].img} alt="" />
-            <h2>height Max{detail[0].height.max}</h2>
-            <h2>height Min{detail[0].height.min}</h2>
+            <img src={detail[0].image} alt="" />
             <h2>Espectativa de vida {detail[0].life_span}</h2>
             <h2>Temperamentos</h2>
-            <div>
-              {detail[0].temperaments.map((temper) => {
-                return <h2>{temper.name}</h2>;
-              })}
-            </div>
+            <h2>{detail[0].temperament}</h2>
+            <h2>Peso</h2>
+            <h2>Minimo{detail[0].weight.min}</h2>
+            <h2> Maximo{detail[0].weight.max}</h2>
             <button onClick={handleClickss}>Pagina Principal</button>
           </div>
         ) : (
@@ -49,8 +46,10 @@ function DogDetail(props) {
             <h1>{detail[0].name}</h1>
             <img src={detail[0].image} alt="" />
             <h2>Origen: {detail[0].origin}</h2>
-            <h2>Altura {detail[0].weight.imperial} cm</h2>
-            <h2>Temperamentos {detail[0].Temperament}</h2>
+            <h2>Temperamentos</h2>
+            <h2>{detail[0].temperament}</h2>
+            <h2>Peso entre</h2>
+            <h2>{detail[0].weight.imperial} cm</h2>
             <button onClick={handleClickss}>Pagina Principal</button>
           </div>
         )

@@ -146,6 +146,7 @@ export default function AddBreed() {
       })
     );
   }
+  
   function handleClick(e) {
     e.preventDefault();
     setNewBreed({
