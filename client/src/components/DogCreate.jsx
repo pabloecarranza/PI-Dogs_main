@@ -17,26 +17,26 @@ function validate(breed) {
   const regexImg = /^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/i;
 
   if (!breed.name) {
-    errors.name = "El campo nombre no puede estar vacio";
+    errors.name = "The field 'Name' must be completed";
   } else if (!breed.height.min || !breed.height.max) {
-    errors.height = "The field 'Height' must be completely filled in";
+    errors.height = "The field 'Height' must be completed";
   } else if (!breed.weight.min || !breed.weight.max) {
-    errors.weight = "The field 'Weight' must be completely filled in";
+    errors.weight = "The field 'Weight' must be completed";
   } else if (!breed.temperament || breed.temperament.length < 2) {
     errors.temperament = "Please, select at least two";
   }
 
   if (breed.name && !regexName.test(breed.name)) {
-    errors.name = "El nombre no puede incluir caracteres especiales o numero";
+    errors.name = "The field 'Name' must have only letters";
   }
   if (breed.img && !regexImg.test(breed.img)) {
-    errors.img = "Please, verify the URL";
+    errors.img = "The field 'Image' must be a valid image URL" ;
   }
   if (breed.weight && breed.weight.min > breed.weight.max) {
-    errors.weight = "Please, verify your input";
+    errors.weight = "The field 'min' can`t be upper than 'max' ";
   }
   if (breed.height && breed.height.min > breed.height.max) {
-    errors.height = "Please, verify your input";
+    errors.height = "The field 'min' can`t be upper than 'max' ";
   }
   return errors;
 }

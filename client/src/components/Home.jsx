@@ -2,14 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  getAllDogs,
-  getTemperamentsList,
-  filterDogsByTemperament,
-  getDogsByName,
-  filterCreated,
-  orderByName,
-} from "../actions";
+import {getAllDogs,getTemperamentsList,filterDogsByTemperament,getDogsByName,filterCreated,orderByName} from "../actions";
 import DogCard from "./DogCard/DogCard";
 import { Paginacion } from "./Paginacion";
 
@@ -78,20 +71,20 @@ function Home() {
         <div>
           <input
             type="text"
-            placeholder="Search a dog..."
+            placeholder="Search a dog breed..."
             value={dogState}
             onChange={(e) => setDogsState(e.target.value)}
           />
           <button type="submit" onClick={handleClick}>
-            <span>search</span>
+            <span>Search</span>
           </button>
         </div>
         <div>
-          <Link to="/newDog/">Crear Personaje</Link>
+          <Link to="/newDog/">Create Breed</Link>
 
           <select onChange={(e) => handleSort(e)}>
-            <option value="asc">Ascendente</option>
-            <option value="des">Descendiente</option>
+            <option value="asc">Orden by A-Z</option>
+            <option value="des">Order by Z-A</option>
           </select>
 
           <select onChange={(e) => handleFilteredByTemp(e)}>
@@ -106,10 +99,10 @@ function Home() {
           </select>
 
           <select onChange={(e) => handleFilteredByMade(e)}>
-            <option value="all">All Race</option>
-            <option value="created">Created</option>
+            <option value="all">All Breeds</option>
+            <option value="created">User Breed</option>
           </select>
-          <Link to="/about/"> <button>Acerca de Mi</button> </Link>
+          <Link to="/about/"> <button>About Me</button> </Link>
         </div>
       </div>
       <div className={styles.container}>
