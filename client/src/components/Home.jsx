@@ -2,7 +2,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {getAllDogs,getTemperamentsList,filterDogsByTemperament,getDogsByName,filterCreated,orderByName} from "../actions";
+import {
+  getAllDogs,
+  getTemperamentsList,
+  filterDogsByTemperament,
+  getDogsByName,
+  filterCreated,
+  orderByName,
+} from "../actions";
 import DogCard from "./DogCard/DogCard";
 import { Paginacion } from "./Paginacion";
 
@@ -32,12 +39,14 @@ function Home() {
   );
 
   useEffect(() => {
-    dispatch(getAllDogs());
     dispatch(getTemperamentsList());
+    dispatch(getAllDogs());
+    
   }, [dispatch]);
 
   function handleClick(e) {
     e.preventDefault();
+
     if (dogState.length === 0) {
       return alert("Please input a name to start the search");
     } else {
@@ -49,6 +58,8 @@ function Home() {
   function handleFilteredByTemp(e) {
     e.preventDefault();
     dispatch(filterDogsByTemperament(e.target.value));
+    setPagina(1);
+
   }
 
   function handleFilteredByMade(e) {
@@ -102,7 +113,10 @@ function Home() {
             <option value="all">All Breeds</option>
             <option value="created">User Breed</option>
           </select>
-          <Link to="/about/"> <button>About Me</button> </Link>
+          <Link to="/about/">
+            {" "}
+            <button>About Me</button>{" "}
+          </Link>
         </div>
       </div>
       <div className={styles.container}>

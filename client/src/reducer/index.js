@@ -3,6 +3,7 @@ const intialState = {
   temperaments: [],
   alldogs: [],
   detail: [],
+  input: [],
 };
 
 export default function rootReducer(state = intialState, action) {

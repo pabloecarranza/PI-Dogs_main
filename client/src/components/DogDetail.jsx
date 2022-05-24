@@ -24,7 +24,7 @@ function DogDetail(props) {
   const handleClickss = () => {
     history.push("/home/");
   };
-  console.log(detail);
+
 
   return (
     <>
