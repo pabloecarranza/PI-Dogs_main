@@ -4,6 +4,10 @@
 - [  ] Express
 - [  ] Sequelize - Postgres
 
+<p align="center">
+  <img height="700" src="./HomeDogs.jpg" />
+</p>
+
 
 #### preparacion variables de entorno
 En `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
