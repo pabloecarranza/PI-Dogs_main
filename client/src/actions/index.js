@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function getAllDogs(){
     return async function(dispatch){
-        let json = await axios.get('http://localhost:3001/dogs');
+        let json = await axios.get('/dogs');
         return dispatch({
             type: 'GET_DOGS',
             payload: json.data
@@ -13,7 +13,7 @@ export function getAllDogs(){
 
 export function getTemperamentsList() {
     return async function (dispatch) {
-        var json = await axios.get('http://localhost:3001/temperament');
+        var json = await axios.get('/temperament');
         var listOfTemperaments = json.data.map(el => el.name)
         return dispatch({
             type: 'GET_TEMPERAMENTS_LIST',
@@ -23,7 +23,7 @@ export function getTemperamentsList() {
 }
 export function postDog(payload){
     return async function(dispatch){
-        const resp = await axios.post('http://localhost:3001/dog', payload)
+        const resp = await axios.post('/dog', payload)
         console.log(payload)
         return  resp;
     }
@@ -34,7 +34,7 @@ export function postDog(payload){
 export function filterDogsByTemperament(payload) {
     return async function (dispatch) {
         try {
-            var json = await axios.get(`http://localhost:3001/dog/?temperament=${payload}`);
+            var json = await axios.get(`/dog/?temperament=${payload}`);
             return dispatch({
                 type: 'GET_DOGS_BY_TEMP',
                 payload: json.data
@@ -47,7 +47,7 @@ export function filterDogsByTemperament(payload) {
 
 export function getDogsByName(name) {
     return async function (dispatch) {
-        const { data } = await axios.get(`http://localhost:3001/dogs?name=${name}`);
+        const { data } = await axios.get(`/dogs?name=${name}`);
         return dispatch({
             type: "GET_DOGS_BY_NAME",
             payload: data
@@ -79,7 +79,7 @@ export function resetDetail(payload){
 export function getDetail(id){
     return async function (dispatch){
         try {
-            let json = await axios.get(`http://localhost:3001/dogs/${id}`);
+            let json = await axios.get(`/dogs/${id}`);
             return dispatch ({
                 type: "GET_DETAILS",
                 payload: json.data
