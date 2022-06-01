@@ -13,15 +13,38 @@ function About() {
 
       <h1>JavaScript Full Stack Developer💻 .! </h1>
       <span>
-        💡Algunas de mis habilidades son: JavaScript, React Js, React Native,
-        Redux, Express.js, Node, MongoDB, Firebase, Sequelize, PostgreSQL, HTML,
-        CSS, entre otras. Me encanta el cambio, adaptarme a los diferentes
-        retos, trabajar en equipo y estar en #ModoEstudianteSiempre📖 <br></br><br></br>Si
-        necesitas mas informacion puedes encontrarme por lo siguientes medios:<br></br>
-        Email: pabloecarranza@gmail.com <br></br>GitHub:
-        https://github.com/pabloecarranza
+      Soy Programador FullStack 💻 !<br /> instruido por Bootcamp Soy Henry.
+          👩🏼‍💻
+          <br />
+          Súper intensivo, con más de 800 hs de práctica de código.👩🏼‍🎓
+          <br /> <br />
+          Aquí aprendí HARD SKILLS como: <br />
+          Frontend: React, Redux, 👩🏼‍🏫 <br />
+          Backend: Node.JS, Javascript, Express, Sequelize👩🏼‍🏫 <br />
+          Data Base: SQLite, PostgreSQL, SQL 👩🏼‍🏫
+          <br />
+          <br />
+          Me encuentro aprendiendo en este momento Typescript && React Native.🕵🏼‍♀️
+          <br />
+          #StudentModeAlways 📖
+          <br />
+          <br />
+          También tuve el privilegio de fortalecer y/o aprender Soft Skills:{" "}
+          <br />
+          🔹 Comunicación clara 💬
+          <br /> 🔹Trabajo en equipo 🤝
+          <br />
+          🔹Adaptación al cambio 🌪️ <br />
+          🔹Resolución de problemas 🛠️
+          <br /> <br />
+          Quieres conocerme mejor? <br />
+          Te dejo mi contacto: <br />
+          Mail: 📬pabloecarranza@gmail.com
+          <br />
+          Github: 🐱 https://github.com/pabloecarranza
       </span>
-      <button onClick={handleClickss}>Pagina Principal</button>
+          <br />
+      <button onClick={handleClickss}>Home Page</button>
     </div>
   );
 }

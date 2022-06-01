@@ -40,16 +40,16 @@ const datainDB = async () => {
       id: dog.id,
       image: dog.img,
       name: dog.name,
-      temperament: dog.temperaments.map((temper) => temper.name).join(", "),
+      temperament: dog.temperaments.map((temper)=> temper.name).join(', '),
       life_span: dog.life_span,
       weight: dog.weight,
       origin: dog.origin,
       temperamentCC: dog.temperament,
-      created: true,
+      created:true
     };
   });
 
-  return tempDB;
+  return tempDB
 };
 
 const getAllDogs = async () => {
@@ -101,19 +101,24 @@ router.get("/temperament", async (req, res) => {
   }
 });
 
-router.get("/dog/", async (req, res) => {
-  const temperament = req.query.temperament;
-  const everyDog = await getAllDogs();
+router.get(
+  "/dog/",
+  /* http://localhost:3001/dog/?temperament=active */ async (req, res) => {
+    const temperament = req.query.temperament;
+    const everyDog = await getAllDogs();
 
-  const dogSearchResult = everyDog.filter((dog) => {
-    if (temperament === "all") return everyDog;
-    else if (dog.temperament) {
-      return dog.temperament.toLowerCase().includes(temperament.toLowerCase());
-    }
-  });
+    const dogSearchResult = everyDog.filter((dog) => {
+      if (temperament === "all") return everyDog;
+      else if (dog.temperament) {
+        return dog.temperament
+          .toLowerCase()
+          .includes(temperament.toLowerCase());
+      }
+    });
 
-  res.status(200).json(dogSearchResult);
-});
+    res.status(200).json(dogSearchResult);
+  }
+);
 
 router.get("/dogs", async (req, res) => {
   const name = req.query.name;

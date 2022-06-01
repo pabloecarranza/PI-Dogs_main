@@ -1,14 +1,11 @@
 import React, {useState} from 'react';
 import styles from './paginacion.module.css';
-import { useEffect } from 'react';
+
 
 
 
 export const Paginacion = ({pagina, setPagina, maximo}) => {
-
-
   const [input, setInput] = useState (1);
-  
 
   const nextPage = () => {
     setInput (parseInt(input) + 1);
@@ -50,14 +47,14 @@ export const Paginacion = ({pagina, setPagina, maximo}) => {
           />
         </svg>
       </button>
-      {/* <input
+      <input
         onChange={e => onChange (e)}
         onKeyDown={e => onKeyDown (e)}
         name="page"
         autoComplete="off"
         value={input}
-      /> 
-      <p> de {Math.ceil(maximo)} </p>*/}
+      />
+      <p> de {Math.ceil(maximo)} </p>
       <button
         disabled={pagina === Math.ceil (maximo) || pagina > Math.ceil (maximo)}
         onClick={nextPage}

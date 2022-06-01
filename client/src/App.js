@@ -1,7 +1,6 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-
 import landingPage from './components/landingPage';
 import Home from './components/Home';
 import DogDetail from './components/DogDetail';

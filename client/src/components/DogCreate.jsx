@@ -17,26 +17,26 @@ function validate(breed) {
   const regexImg = /^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/i;
 
   if (!breed.name) {
-    errors.name = "The field 'Name' must be completed";
+    errors.name = "The field name can't be empty ";
   } else if (!breed.height.min || !breed.height.max) {
-    errors.height = "The field 'Height' must be completed";
+    errors.height = "The field 'Height' must be completely filled in";
   } else if (!breed.weight.min || !breed.weight.max) {
-    errors.weight = "The field 'Weight' must be completed";
+    errors.weight = "The field 'Weight' must be completely filled in";
   } else if (!breed.temperament || breed.temperament.length < 2) {
     errors.temperament = "Please, select at least two";
   }
 
   if (breed.name && !regexName.test(breed.name)) {
-    errors.name = "The field 'Name' must have only letters";
+    errors.name = "The name can't include special characters or numbers";
   }
   if (breed.img && !regexImg.test(breed.img)) {
-    errors.img = "The field 'Image' must be a valid image URL" ;
+    errors.img = "Please, verify the URL";
   }
   if (breed.weight && breed.weight.min > breed.weight.max) {
-    errors.weight = "The field 'min' can`t be upper than 'max' ";
+    errors.weight = "Please, verify your input";
   }
   if (breed.height && breed.height.min > breed.height.max) {
-    errors.height = "The field 'min' can`t be upper than 'max' ";
+    errors.height = "Please, verify your input";
   }
   return errors;
 }
@@ -338,7 +338,7 @@ export default function AddBreed() {
         <input type="submit" />
       </form>
       <div>
-        <button onClick={handleClickss}>Pagina Principal</button>
+        <button onClick={handleClickss}>Home Page</button>
       </div>
     </div>
   );

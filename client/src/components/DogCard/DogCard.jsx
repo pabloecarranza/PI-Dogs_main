@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./dogCard.module.css";
 import { Link } from "react-router-dom";
 
-function DogCard({id, img, name, image, weight, temperament, temperaments}) {
+function DogCard({id, img, name, image, weight, temperament, weights, temperaments}) {
 
 
 
@@ -23,18 +23,17 @@ function DogCard({id, img, name, image, weight, temperament, temperaments}) {
       </div>
       </div>
       )
-    }else{
-      return (
-     
-        
-        <div className={styles.dogCard}>
+  }else{
+    return (
+
+      <div className={styles.dogCard}>
       <img src={img} alt="" />
       <div>
       <Link to={"/dogs/" + id}>
       <h1>{name}</h1>
       </Link>
       
-       
+      <h4> peso entre {weights.min} y {weights.max}kilos</h4>
       
       {temperaments ? (
 

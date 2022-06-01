@@ -5,10 +5,10 @@ import Styles from "../components/Styles.module.css";
 function landingPage() {
   return (
     <div className={Styles.landing}>
-      <div>Bienvenido
+      <div>Welcome
 
       <Link to="/home">
-        <button>Entrar</button>
+        <button>Enter</button>
       </Link>
       </div>
     </div>

@@ -2,14 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  getAllDogs,
-  getTemperamentsList,
-  filterDogsByTemperament,
-  getDogsByName,
-  filterCreated,
-  orderByName,
-} from "../actions";
+import { getAllDogs, getTemperamentsList, filterDogsByTemperament, getDogsByName, filterCreated, orderByName } from "../actions";
 import DogCard from "./DogCard/DogCard";
 import { Paginacion } from "./Paginacion";
 
@@ -27,7 +20,7 @@ function Home() {
   );
 
   const [pagina, setPagina] = useState(1);
-  const [porPagina, setPorPagina] = useState(8);
+  const [porPagina, setPorPagina] = useState(9);
   const [dogState, setDogsState] = useState("");
   const [sort, setSort] = useState("");
 
@@ -39,14 +32,12 @@ function Home() {
   );
 
   useEffect(() => {
-    dispatch(getTemperamentsList());
     dispatch(getAllDogs());
-    
+    dispatch(getTemperamentsList());
   }, [dispatch]);
 
   function handleClick(e) {
     e.preventDefault();
-
     if (dogState.length === 0) {
       return alert("Please input a name to start the search");
     } else {
@@ -58,8 +49,6 @@ function Home() {
   function handleFilteredByTemp(e) {
     e.preventDefault();
     dispatch(filterDogsByTemperament(e.target.value));
-    setPagina(1);
-
   }
 
   function handleFilteredByMade(e) {
@@ -77,25 +66,25 @@ function Home() {
   return (
     <>
       <div className={styles.navbar}>
-        <h1>DOGS aPI</h1>
+        <h1>The Dog API</h1>
         <Paginacion pagina={pagina} setPagina={setPagina} maximo={maximo} />
         <div>
           <input
             type="text"
-            placeholder="Search a dog breed..."
+            placeholder="Search a dog..."
             value={dogState}
             onChange={(e) => setDogsState(e.target.value)}
           />
           <button type="submit" onClick={handleClick}>
-            <span>Search</span>
+            <span>search</span>
           </button>
         </div>
         <div>
-          <Link to="/newDog/">Create Breed</Link>
+          <Link to="/newDog/">New Race</Link>
 
           <select onChange={(e) => handleSort(e)}>
-            <option value="asc">Orden by A-Z</option>
-            <option value="des">Order by Z-A</option>
+            <option value="asc">ascending</option>
+            <option value="des">descending</option>
           </select>
 
           <select onChange={(e) => handleFilteredByTemp(e)}>
@@ -110,13 +99,10 @@ function Home() {
           </select>
 
           <select onChange={(e) => handleFilteredByMade(e)}>
-            <option value="all">All Breeds</option>
-            <option value="created">User Breed</option>
+            <option value="all">All Race</option>
+            <option value="created">Created</option>
           </select>
-          <Link to="/about/">
-            {" "}
-            <button>About Me</button>{" "}
-          </Link>
+          <Link to="/about/"> <button>About Me</button> </Link>
         </div>
       </div>
       <div className={styles.container}>
