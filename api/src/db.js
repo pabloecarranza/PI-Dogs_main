@@ -7,7 +7,7 @@ const {
 } = process.env;
 
 let sequelize = 
-process.env.NODE_env === "production"
+process.env.NODE_ENV === "production"
 ? new Sequilize({
     database: DB_NAME,
     dialect: "postgres",
